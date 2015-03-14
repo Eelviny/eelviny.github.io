@@ -35,12 +35,13 @@
 		.panel {
 			border-width: 0px; } }
     
-    @media only screen and (min-width: 64.063em) {
-        .scrollToTop {
-	        position:fixed;
-             bottom:20px;
-	        right:20px;
-	        color: #cccccc;}
+    .scrollToTop {
+        position:fixed;
+        bottom:20px;
+        right:20px;
+        color: #cccccc; }
+    .scrollToTop:focus {
+        color: #cccccc;
     }
 	    
 	</style>
@@ -178,7 +179,7 @@
 	</div>
 
 	<div class="row">
-		<div class="alert-box alert radius" data-alert="">
+		<div class="alert-box warning radius" data-alert="">
 			<span class="fa fa-warning"></span> Woo, new website look! Keep in mind it's still a big work-in-progress sort thing, so expect stuff to be missing or broken... 
 			<a class="close" href="#">&times;</a>
 		</div>
@@ -194,7 +195,7 @@
 			</div>
 
 			<div class="medium-3 columns">
-				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
+				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
 			</div>
 		</div>
 
@@ -226,7 +227,7 @@
 				<span class="fa fa-picture-o fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
+				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
 			</div>
 		</div>
 
@@ -263,7 +264,7 @@
 				<span class="fa fa-picture-o fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
+				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
 			</div>
 		</div>
 
@@ -296,7 +297,7 @@
 				<span class="fa fa-picture-o fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
+				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
 			</div>
 		</div>
 
@@ -335,7 +336,7 @@
 				<span class="fa fa-quote-right fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
+				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
 			</div>
 		</div>
 
@@ -366,11 +367,11 @@
 	<div class="row panel">
 		<div class="row">
 			<div class="medium-9 columns">
-				<a class="button expand" href="{URL}" target="_blank">{Name}</a>
+				<a class="button expand" href="{URL}" {Target}>{Name}{block:Host} - {Host}{/block:Host}</a>
 			</div>
 
 			<div class="medium-3 columns">
-				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
+				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
 			</div>
 		</div>
 
@@ -403,7 +404,7 @@
 			</div>
 
 			<div class="medium-3 columns">
-				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
+				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
 			</div>
 		</div>
 
@@ -437,7 +438,7 @@
 				<span class="fa fa-volume-up fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
+				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
 			</div>
 		</div>
 
@@ -474,7 +475,7 @@
 				<span class="fa fa-youtube-play fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
+				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
 			</div>
 		</div>
 
@@ -511,7 +512,7 @@
 				<span class="fa fa-question fa-2x"></span> {Asker}
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
+				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
 			</div>
 		</div>
 
@@ -543,42 +544,34 @@
 	<div class="row">
 		<div class="small-12 columns">
 			<div class="pagination-centered">
-				<ul class="pagination" role="menubar" aria-label="Pagination">
-					<li class="arrow unavailable" aria-disabled="true"><a href="">&laquo; Previous</a></li>
-					<li class="current"><a href="">1</a></li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li class="unavailable" aria-disabled="true"><a href="">&hellip;</a></li>
-					<li><a href="">12</a></li>
-					<li><a href="">13</a></li>
-					<li class="arrow"><a href="">Next &raquo;</a></li>
+			    <ul class="pagination" role="menubar" aria-label="Pagination">
+					{block:PreviousPage}<li class="arrow" aria-disabled="true"><a href="{PreviousPage}"><span class="fa fa-angle-left"></span></a></li>{/block:PreviousPage}
+					{block:JumpPagination length="5"}
+					{block:CurrentPage}
+					<li class="current"><a href="{URL}">{PageNumber}</a></li>
+					{/block:CurrentPage}
+					{block:JumpPage}
+					<li><a href="{URL}">{PageNumber}</a></li>
+					{/block:JumpPage}
+					{/block:JumpPagination}
+					{block:NextPage}<li class="arrow"><a href="{NextPage}"><span class="fa fa-angle-right"></span></a></li>{/block:NextPage}
 				</ul>
 			</div>
 		</div>
 	</div>
 	<div class="row"
 		<div class="small-12 columns">
-			<h6 class="subheader small-text-center medium-text-right">Theme created by Eelviny - 2013-2015</h6>
+			<h6 class="subheader small-text-center medium-text-right">Theme created by Eelviny - {CopyrightYears}</h6>
 		</div>
 	</div>
 	
-<a href="#" class="scrollToTop fa fa-arrow-circle-o-up fa-3x"></a>
+<a href="#" class="scrollToTop fa fa-chevron-up fa-2x show-for-large-up"></a>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/vendor/jquery.js"></script> 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js"></script> 
 	<script>$(document).foundation();</script>
 	<script>
 	    $(document).ready(function(){
-	
-	    //Check to see if the window is top if not then display button
-    	$(window).scroll(function(){
-	    	if ($(this).scrollTop() > 100) {
-		    	$('.scrollToTop').fadeIn();
-		    } else {
-			    $('.scrollToTop').fadeOut();
-    		}
-	    });
 	
 	    //Click event to scroll to top
 	    $('.scrollToTop').click(function(){
