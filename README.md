@@ -1,5 +1,6 @@
 # eelviny.github.io
 Work in progress Tumblr theme for personal website.
+http://eelviny.me
 
 Designed to be a 1-page document for Tumblr compatability.
 External dependencies:
