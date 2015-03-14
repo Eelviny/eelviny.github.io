@@ -18,9 +18,14 @@
 	<style>
 	body, h1, h2, h3, h4, h5, h6, button, .button, .label, select {
 		font-family: "Open Sans", sans-serif; }
-	
-	.top-bar, .top-bar.expanded .title-area {
-      background: #2ba6cb; }
+
+	#header {
+		border-width: 0px; }
+		
+	@media only screen and (max-width: 64em) { 
+		.panel {
+			border-width: 0px; } }
+      
 	</style>
 	<!-- FontAwesome -->
 	<link href=
@@ -51,20 +56,43 @@
 				<!-- Right Nav Section -->
 
 				<ul class="right">
-					<li class="active">
-						<a href="#">Right Button Active</a>
+					<li>
+						<a href="#">Mumble</a>
+					</li>
+					<li>
+						<a href="#">Questions</a>
+					</li>
+					<li>
+						<a href="#">Archive</a>
+					</li>
+					<li>
+						<a href="#">Random Post</a>
 					</li>
 
 					<li class="has-dropdown">
-						<a href="#">Right Button Dropdown</a>
+						<a href="#">Where to find me</a>
 
 						<ul class="dropdown">
 							<li>
-								<a href="#">First link in dropdown</a>
+								<a href="#"><span class="fa fa-github"></span> Github</a>
 							</li>
-
-							<li class="active">
-								<a href="#">Active link in dropdown</a>
+							<li>
+								<a href="#"><span class="fa fa-google-plus"></span> Google+</a>
+							</li>
+							<li>
+								<a href="#"><span class="fa fa-reddit"></span> Reddit</a>
+							</li>
+							<li>
+								<a href="#"><span class="fa fa-soundcloud"></span> Soundcloud</a>
+							</li>
+							<li>
+								<a href="#"><span class="fa fa-steam"></span> Steam</a>
+							</li>
+							<li>
+								<a href="#"><span class="fa fa-twitter"></span> Twitter</a>
+							</li>
+							<li>
+								<a href="#"><span class="fa fa-rss"></span> RSS</a>
 							</li>
 						</ul>
 					</li>
@@ -72,7 +100,9 @@
 			</section>
 		</nav>
 	</div>
-
+	
+	
+	<div id="header" class="panel callout">
 	<div class="row">
 		<br>
 
@@ -87,7 +117,7 @@
 			charity worker, systems administrator, and a world class
 			procrastinator. Welcome to my world.</p>
 
-			<ul class="inline-list right">
+			<ul class="inline-list right el-logo">
 				<li>
 					<a href="#"><span class="fa fa-github"></span></a>
 				</li>
@@ -117,7 +147,10 @@
 				</li>
 			</ul>
 		</div>
-	</div><br>
+	</div>
+	<br>
+	</div>
+	<br>
 
 	<div class="row">
 		<div class="alert-box alert radius" data-alert="">
@@ -540,6 +573,21 @@
 				"fa fa-refresh"></span>&nbsp; <span class=
 				"fa fa-heart"></span>&nbsp;
 			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="large-8 columns">
+			<div class="pagination-centered">
+				<ul class="pagination" role="menubar" aria-label="Pagination">
+					<li class="arrow unavailable" aria-disabled="true"><a href="">&laquo; Previous</a></li>
+					<li class="current unavailable"><a href="">1/13</a></li>
+					<li class="arrow"><a href="">Next &raquo;</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="large-4 columns small-text-center large-text-right">
+			<h6 class="subheader">Theme created by Eelviny - 2013-2015</h6>
 		</div>
 	</div>
 	
