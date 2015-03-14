@@ -35,9 +35,14 @@
 		.panel {
 			border-width: 0px; } }
     
-    .like_and_reblog_buttons {
-                list-style: none;
-            }
+    @media only screen and (min-width: 64.063em) {
+        .scrollToTop {
+	        position:fixed;
+             bottom:20px;
+	        right:20px;
+	        color: #cccccc;}
+    }
+	    
 	</style>
 	<!-- FontAwesome -->
 	<link href=
@@ -227,7 +232,7 @@
 
 		<div class="row">
 			<div class="large-12 columns text-center">
-				<a href="{PhotoURL-1280}"><img src="{PhotoURL-1280}" alt="{PhotoAlt}"/></a>
+				<a href="#" data-reveal-id="photo{PostID}"><img src="{PhotoURL-1280}" alt="{PhotoAlt}"/></a>
                 {block:Caption}{Caption}{/block:Caption}
 			</div>
 		</div>
@@ -245,6 +250,10 @@
 			</div>
 		</div>
 	</div>
+	<div id="photo{PostID}" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <img src="{PhotoURL-1280}" alt="{PhotoAlt}"/>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
 	{/block:Photo}
 
     {block:Panorama}
@@ -357,7 +366,7 @@
 	<div class="row panel">
 		<div class="row">
 			<div class="medium-9 columns">
-				<a class="button expand" href="{URL}" {Target}>{Name}</a>
+				<a class="button expand" href="{URL}" target="_blank">{Name}</a>
 			</div>
 
 			<div class="medium-3 columns">
@@ -554,9 +563,31 @@
 		</div>
 	</div>
 	
+<a href="#" class="scrollToTop fa fa-arrow-circle-o-up fa-3x"></a>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/vendor/jquery.js"></script> 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js"></script> 
 	<script>$(document).foundation();</script>
+	<script>
+	    $(document).ready(function(){
+	
+	    //Check to see if the window is top if not then display button
+    	$(window).scroll(function(){
+	    	if ($(this).scrollTop() > 100) {
+		    	$('.scrollToTop').fadeIn();
+		    } else {
+			    $('.scrollToTop').fadeOut();
+    		}
+	    });
+	
+	    //Click event to scroll to top
+	    $('.scrollToTop').click(function(){
+		    $('html, body').animate({scrollTop : 0},800);
+		    return false;
+	    });
+	
+    });
+	</script>
 	
 </body>
 </html>
