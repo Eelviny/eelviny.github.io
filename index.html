@@ -14,27 +14,34 @@
 	rel="stylesheet">
 	<link href=
 	"https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/foundation.min.css"
-	rel="stylesheet"><!-- FontAwesome -->
+	rel="stylesheet">
+	<style>
+	body, h1, h2, h3, h4, h5, h6, button, .button, .label, select {
+		font-family: "Open Sans", sans-serif; }
+	
+	.top-bar, .top-bar.expanded .title-area {
+      background: #2ba6cb; }
+	</style>
+	<!-- FontAwesome -->
 	<link href=
 	"https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-	rel="stylesheet"><!-- Open Sans -->
+	rel="stylesheet">
+	<!-- Open Sans -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel=
 	'stylesheet' type='text/css'>
 	<script src=
 	"https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/vendor/modernizr.js"></script>
 </head>
 
-<body style="font-family: 'Open Sans', sans-serif;">
+<body>
 	<div class="sticky">
-		<nav class="top-bar" data-topbar="" style="background:#2ba6cb">
+		<nav class="top-bar" data-topbar="">
 			<ul class="title-area">
 				<li class="name">
 					<h1><a href="#"><img src=
 					"http://dev.bukkit.org/thumbman/avatars/24/606/300x300/rsz_cube.png.-m0.png"
 					style="width:25px"> Eelviny</a></h1>
 				</li>
-				<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-
 				<li class="toggle-topbar menu-icon">
 					<a href="#"><span>Menu</span></a>
 				</li>
@@ -114,7 +121,7 @@
 
 	<div class="row">
 		<div class="alert-box alert radius" data-alert="">
-			This is a work in progress template - Beware of strange, glitchy
+			<span class="fa fa-warning"></span> This is a work in progress template - Beware of strange, glitchy
 			things! <a class="close" href="#">&times;</a>
 		</div>
 	</div><!-- Text Post -->
@@ -147,26 +154,29 @@
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">ikea</span></a>
+				<a href="#"><span class="label">tag1</span></a>
+				<a href="#"><span class="label">tag2</span></a>
+				<a href="#"><span class="label">tag3</span></a>
+				<a href="#"><span class="label">tag4</span></a>
 			</div>
 
-			<div class="medium-6 columns text-right" style="font-size: 25px">
+			<div class="medium-6 columns text-right">
 				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px" title=
+				"color:#cccccc; font-size:15px;" title=
 				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
 				"fa fa-refresh"></span>&nbsp; <span class=
 				"fa fa-heart"></span>&nbsp;
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="large-12 columns"></div>
-		</div>
-	</div><!-- Photo Post -->
-
+	</div>
+	
+	<!-- Photo Post -->
 	<div class="row panel radius">
 		<div class="row">
-			<div class="medium-12 columns">
+			<div class="small-3 columns">
+				<span class="fa fa-picture-o fa-2x"></span>
+			</div>
+			<div class="small-9 columns">
 				<p class="text-right">23 February 2015</p>
 			</div>
 		</div>
@@ -182,26 +192,28 @@
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">ikea</span></a>
+				<a href="#"><span class="label">tag1</span></a>
+				<a href="#"><span class="label">tag2</span></a>
+				<a href="#"><span class="label">tag3</span></a>
+				<a href="#"><span class="label">tag4</span></a>
 			</div>
 
-			<div class="medium-6 columns text-right" style="font-size: 25px">
+			<div class="medium-6 columns text-right">
 				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px" title=
+				"color:#cccccc; font-size:15px;" title=
 				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
 				"fa fa-refresh"></span>&nbsp; <span class=
 				"fa fa-heart"></span>&nbsp;
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="large-12 columns"></div>
-		</div>
 	</div><!-- Panorama Post -->
 
 	<div class="row panel radius">
 		<div class="row">
-			<div class="medium-12 columns">
+			<div class="small-3 columns">
+				<span class="fa fa-picture-o fa-2x"></span>
+			</div>
+			<div class="small-9 columns">
 				<p class="text-right">23 February 2015</p>
 			</div>
 		</div>
@@ -217,26 +229,28 @@
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">ikea</span></a>
+				<a href="#"><span class="label">tag1</span></a>
+				<a href="#"><span class="label">tag2</span></a>
+				<a href="#"><span class="label">tag3</span></a>
+				<a href="#"><span class="label">tag4</span></a>
 			</div>
 
-			<div class="medium-6 columns text-right" style="font-size: 25px">
+			<div class="medium-6 columns text-right">
 				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px" title=
+				"color:#cccccc; font-size:15px;" title=
 				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
 				"fa fa-refresh"></span>&nbsp; <span class=
 				"fa fa-heart"></span>&nbsp;
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="large-12 columns"></div>
-		</div>
 	</div><!-- Photoset Post -->
 
 	<div class="row panel radius">
 		<div class="row">
-			<div class="medium-12 columns">
+			<div class="small-3 columns">
+				<span class="fa fa-picture-o fa-2x"></span>
+			</div>
+			<div class="small-9 columns">
 				<p class="text-right">23 February 2015</p>
 			</div>
 		</div>
@@ -281,26 +295,28 @@
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">ikea</span></a>
+				<a href="#"><span class="label">tag1</span></a>
+				<a href="#"><span class="label">tag2</span></a>
+				<a href="#"><span class="label">tag3</span></a>
+				<a href="#"><span class="label">tag4</span></a>
 			</div>
 
-			<div class="medium-6 columns text-right" style="font-size: 25px">
+			<div class="medium-6 columns text-right">
 				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px" title=
+				"color:#cccccc; font-size:15px;" title=
 				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
 				"fa fa-refresh"></span>&nbsp; <span class=
 				"fa fa-heart"></span>&nbsp;
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="large-12 columns"></div>
-		</div>
 	</div><!-- Quote Post -->
 
 	<div class="row panel radius">
 		<div class="row">
-			<div class="medium-12 columns">
+			<div class="small-3 columns">
+				<span class="fa fa-quote-right fa-2x"></span>
+			</div>
+			<div class="small-9 columns">
 				<p class="text-right">23 February 2015</p>
 			</div>
 		</div>
@@ -316,20 +332,19 @@
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">ikea</span></a>
+				<a href="#"><span class="label">tag1</span></a>
+				<a href="#"><span class="label">tag2</span></a>
+				<a href="#"><span class="label">tag3</span></a>
+				<a href="#"><span class="label">tag4</span></a>
 			</div>
 
-			<div class="medium-6 columns text-right" style="font-size: 25px">
+			<div class="medium-6 columns text-right">
 				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px" title=
+				"color:#cccccc; font-size:15px;" title=
 				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
 				"fa fa-refresh"></span>&nbsp; <span class=
 				"fa fa-heart"></span>&nbsp;
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="large-12 columns"></div>
 		</div>
 	</div><!-- Link Post -->
 
@@ -355,27 +370,27 @@
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">ikea</span></a>
+				<a href="#"><span class="label">tag1</span></a>
+				<a href="#"><span class="label">tag2</span></a>
+				<a href="#"><span class="label">tag3</span></a>
+				<a href="#"><span class="label">tag4</span></a>
 			</div>
 
-			<div class="medium-6 columns text-right" style="font-size: 25px">
+			<div class="medium-6 columns text-right">
 				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px" title=
+				"color:#cccccc; font-size:15px;" title=
 				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
 				"fa fa-refresh"></span>&nbsp; <span class=
 				"fa fa-heart"></span>&nbsp;
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="large-12 columns"></div>
-		</div>
-	</div><!-- Chat Post -->
-
+	</div>
+	
+	<!-- Chat Post -->
 	<div class="row panel radius">
 		<div class="row">
 			<div class="medium-9 columns">
-				<h2>Ikea is Life</h2>
+				<h2>Life, the universe and everything</h2>
 			</div>
 
 			<div class="medium-3 columns">
@@ -384,30 +399,153 @@
 		</div>
 
 		<div class="row">
-			<div class="large-12 columns"></div>
+			<div class="large-12 columns">
+				<hr>
+				<p>Eelviny: What is the meaning of life, the universe and everything?</p>
+				<hr>
+				<p>Random: The meaning of life is Math.</p>
+				<hr>
+				<p>Eelviny: How?</p>
+				<hr>
+				<p>Random: Take the position of each letter of m-a-t-h in the alphabet. Take those numbers and add them together. What do you get?</p>
+				<hr>
+			</div>
 		</div>
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">ikea</span></a>
+				<a href="#"><span class="label">tag1</span></a>
+				<a href="#"><span class="label">tag2</span></a>
+				<a href="#"><span class="label">tag3</span></a>
+				<a href="#"><span class="label">tag4</span></a>
 			</div>
 
-			<div class="medium-6 columns text-right" style="font-size: 25px">
+			<div class="medium-6 columns text-right">
 				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px" title=
+				"color:#cccccc; font-size:15px;" title=
 				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
 				"fa fa-refresh"></span>&nbsp; <span class=
 				"fa fa-heart"></span>&nbsp;
 			</div>
 		</div>
+	</div>
+	
+	<!-- Audio Post -->
+	<div class="row panel radius">
+		<div class="row">
+			<div class="small-3 columns">
+				<span class="fa fa-volume-up fa-2x"></span>
+			</div>
+			<div class="small-9 columns">
+				<p class="text-right">23 February 2015</p>
+			</div>
+		</div>
 
 		<div class="row">
-			<div class="large-12 columns"></div>
+			<div class="large-12 columns text-center">
+				<div class="flex-video">
+					<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/180849045&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+				</div>
+				<p>Caption here!</p>
+			</div>
 		</div>
-	</div><script src=
-	"https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/vendor/jquery.js"></script> <script src=
-"https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js"></script> <script>
-$(document).foundation();
-	</script>
+
+		<div class="row">
+			<div class="medium-6 columns">
+				<a href="#"><span class="label">tag1</span></a>
+				<a href="#"><span class="label">tag2</span></a>
+				<a href="#"><span class="label">tag3</span></a>
+				<a href="#"><span class="label">tag4</span></a>
+			</div>
+
+			<div class="medium-6 columns text-right">
+				<a href="#"><span class="has-tip" data-tooltip="" style=
+				"color:#cccccc; font-size:15px;" title=
+				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
+				"fa fa-refresh"></span>&nbsp; <span class=
+				"fa fa-heart"></span>&nbsp;
+			</div>
+		</div>
+	</div>
+	
+	<!-- Video Post -->
+	<div class="row panel radius">
+		<div class="row">
+			<div class="small-3 columns">
+				<span class="fa fa-youtube-play fa-2x"></span>
+			</div>
+			<div class="small-9 columns">
+				<p class="text-right">23 February 2015</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="large-12 columns text-center">
+				<div class="flex-video">
+					<iframe width="640" height="360" src="https://www.youtube.com/embed/VKvkBQukTgU" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<p>...Reality check please</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-6 columns">
+				<a href="#"><span class="label">tag1</span></a>
+				<a href="#"><span class="label">tag2</span></a>
+				<a href="#"><span class="label">tag3</span></a>
+				<a href="#"><span class="label">tag4</span></a>
+			</div>
+
+			<div class="medium-6 columns text-right">
+				<a href="#"><span class="has-tip" data-tooltip="" style=
+				"color:#cccccc; font-size:15px;" title=
+				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
+				"fa fa-refresh"></span>&nbsp; <span class=
+				"fa fa-heart"></span>&nbsp;
+			</div>
+		</div>
+	</div>
+	
+	<!-- Answer Post -->
+	<div class="row panel radius">
+		<div class="row">
+			<div class="small-3 columns">
+				<span class="fa fa-question fa-2x"></span>
+			</div>
+			<div class="small-9 columns">
+				<p class="text-right">23 February 2015</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="large-12 columns">
+				<h3>Bear Grylls? Bear Grylls? What kind of a name is that? Are you an animal or a bit of an oven? I bet you went to private school</h3>
+				<hr>
+				<p>With yer mates, Badger Hobbs and Gasto Squirrel…</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-6 columns">
+				<a href="#"><span class="label">tag1</span></a>
+				<a href="#"><span class="label">tag2</span></a>
+				<a href="#"><span class="label">tag3</span></a>
+				<a href="#"><span class="label">tag4</span></a>
+			</div>
+
+			<div class="medium-6 columns text-right">
+				<a href="#"><span class="has-tip" data-tooltip="" style=
+				"color:#cccccc; font-size:15px;" title=
+				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
+				"fa fa-refresh"></span>&nbsp; <span class=
+				"fa fa-heart"></span>&nbsp;
+			</div>
+		</div>
+	</div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/vendor/jquery.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js"></script> 
+	<script>$(document).foundation();</script>
+	
 </body>
 </html>
