@@ -7,7 +7,16 @@
 	<!-- If you delete this meta tag World War Z will become a reality -->
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<title>Eelviny</title>
+	<title>{block:TagPage}{Tag} posts - {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+	<link rel="shortcut icon" href="{Favicon}">
+    <link rel="apple-touch-icon" href="{PortraitURL-128}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    {block:Description}
+    <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
+    {block:PostSummary}
+    <meta property="og:title" content="{PostSummary} - {Name}" />
+    {/block:PostSummary}
 	<!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
 	<link href=
 	"https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/normalize.min.css"
@@ -25,7 +34,10 @@
 	@media only screen and (max-width: 64em) { 
 		.panel {
 			border-width: 0px; } }
-      
+    
+    .like_and_reblog_buttons {
+                list-style: none;
+            }
 	</style>
 	<!-- FontAwesome -->
 	<link href=
@@ -36,6 +48,16 @@
 	'stylesheet' type='text/css'>
 	<script src=
 	"https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/vendor/modernizr.js"></script>
+	
+	<script>
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38351552-4', 'auto');
+    ga('send', 'pageview');
+    </script>
 </head>
 
 <body>
@@ -43,9 +65,9 @@
 		<nav class="top-bar" data-topbar="">
 			<ul class="title-area">
 				<li class="name">
-					<h1><a href="#"><img src=
-					"http://dev.bukkit.org/thumbman/avatars/24/606/300x300/rsz_cube.png.-m0.png"
-					style="width:25px"> Eelviny</a></h1>
+					<h1><a href="{BlogURL}"><img src=
+					"{PortraitURL-48}"
+					style="width:24px"> {Title}</a></h1>
 				</li>
 				<li class="toggle-topbar menu-icon">
 					<a href="#"><span>Menu</span></a>
@@ -56,17 +78,17 @@
 				<!-- Right Nav Section -->
 
 				<ul class="right">
+					{block:HasPages}{block:Pages}<li>
+						<a href="{URL}">{Label}</a>
+					</li>{/block:Pages}{/block:HasPages}
+					{block:AskEnabled}<li>
+						<a href="/ask">Questions</a>
+					</li>{/block:AskEnabled}
 					<li>
-						<a href="#">Mumble</a>
+						<a href="/archive">Archive</a>
 					</li>
 					<li>
-						<a href="#">Questions</a>
-					</li>
-					<li>
-						<a href="#">Archive</a>
-					</li>
-					<li>
-						<a href="#">Random Post</a>
+						<a href="/random">Random Post</a>
 					</li>
 
 					<li class="has-dropdown">
@@ -103,491 +125,432 @@
 	
 	
 	<div id="header" class="panel callout">
-	<div class="row">
-		<br>
+	    <div class="row">
+		    <br>
 
-		<div class="medium-3 columns show-for-medium-up"><img src=
-		"http://dev.bukkit.org/thumbman/avatars/24/606/300x300/rsz_cube.png.-m0.png"></div>
+		    <div class="medium-2 columns show-for-medium-up"><img src=
+		    "{PortraitURL-128}"></div>
 
-		<div class="medium-9 columns">
-			<h1 class="small-only-text-center">Eelviny</h1>
+		    <div class="medium-10 columns">
+		    	<h1 class="small-only-text-center">Eelviny</h1>
 
-			<p>Hi, my name's Elvin Luff, but I go by the username Eelviny. I am
-			many things: Web developer, student, outdoor persuits leader,
-			charity worker, systems administrator, and a world class
-			procrastinator. Welcome to my world.</p>
+	    		<p>Hi, my name's Elvin Luff, but I go by the username Eelviny. I am
+	    		many things: Web developer, student, outdoor persuits leader,
+	    		charity worker, systems administrator, and a world class
+	    		procrastinator. Welcome to my world.</p>
 
-			<ul class="inline-list right el-logo">
-				<li>
-					<a href="#"><span class="fa fa-github"></span></a>
-				</li>
+	    		<ul class="inline-list right el-logo">
+	    			<li>
+	    				<a href="#"><span class="fa fa-github"></span></a>
+	    			</li>
 
-				<li>
-					<a href="#"><span class="fa fa-google-plus"></span></a>
-				</li>
+	    			<li>
+	    				<a href="#"><span class="fa fa-google-plus"></span></a>
+	    			</li>
 
-				<li>
-					<a href="#"><span class="fa fa-reddit"></span></a>
-				</li>
+	    			<li>
+	    				<a href="#"><span class="fa fa-reddit"></span></a>
+	    			</li>
 
-				<li>
-					<a href="#"><span class="fa fa-soundcloud"></span></a>
-				</li>
+	    			<li>
+	    				<a href="#"><span class="fa fa-soundcloud"></span></a>
+	    			</li>
 
-				<li>
-					<a href="#"><span class="fa fa-steam"></span></a>
-				</li>
+	    			<li>
+		    			<a href="#"><span class="fa fa-steam"></span></a>
+		    		</li>
 
-				<li>
-					<a href="#"><span class="fa fa-twitter"></span></a>
-				</li>
+		    		<li>
+		    			<a href="#"><span class="fa fa-twitter"></span></a>
+		    		</li>
 
-				<li>
-					<a href="#"><span class="fa fa-rss"></span></a>
-				</li>
-			</ul>
-		</div>
+		    		<li>
+		    			<a href="#"><span class="fa fa-rss"></span></a>
+		    		</li>
+		    	</ul>
+	    	</div>
+    	</div>
 	</div>
-	<br>
-	</div>
-	<br>
 
 	<div class="row">
 		<div class="alert-box alert radius" data-alert="">
-			<span class="fa fa-warning"></span> This is a work in progress template - Beware of strange, glitchy
-			things! <a class="close" href="#">&times;</a>
+			<span class="fa fa-warning"></span> Woo, new website look! Keep in mind it's still a big work-in-progress sort thing, so expect stuff to be missing or broken... 
+			<a class="close" href="#">&times;</a>
 		</div>
-	</div><!-- Text Post -->
-
+	</div>
+	
+	
+{block:Posts}
+    {block:Text}
 	<div class="row panel">
 		<div class="row">
 			<div class="medium-9 columns">
-				<h2>Ikea is Life</h2>
+				{block:Title}<h2><a href="{Permalink}"></a>{Title}</a></h2>{/block:Title}
 			</div>
 
 			<div class="medium-3 columns">
-				<p class="text-right">23 February 2015</p>
+				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="large-12 columns">
-				<p>Do you ever just get the feeling you could live in Ikea? It
-				just seems to have everything, and it’s like one big maze… And
-				it doesn’t even stop at furniture! I might have gotten slightly
-				too comfy on a random sofa at some point or other.<br>
-				Ikea is one of the only places where shopping there can be
-				called a fun day out. A whole day. In one shop. And at the end,
-				you can even go for a meal, without even stepping outside! It’s
-				weird and awesome… My room is basically just one big flatpack,
-				I’m struggling to find any furniture not made by Ikea in
-				it.</p>
+				{Body}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">tag1</span></a>
-				<a href="#"><span class="label">tag2</span></a>
-				<a href="#"><span class="label">tag3</span></a>
-				<a href="#"><span class="label">tag4</span></a>
+			    {block:HasTags}{block:Tags}
+				<a href="{TagURL}"><span class="label">{Tag}</span></a>
+				{/block:Tags}{/block:HasTags}
 			</div>
 
 			<div class="medium-6 columns text-right">
-				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px;" title=
-				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
-				"fa fa-refresh"></span>&nbsp; <span class=
-				"fa fa-heart"></span>&nbsp;
+				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
 		</div>
 	</div>
+	{/block:Text}
 	
-	<!-- Photo Post -->
+	{block:Photo}
 	<div class="row panel">
 		<div class="row">
 			<div class="small-3 columns">
 				<span class="fa fa-picture-o fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				<p class="text-right">23 February 2015</p>
+				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="large-12 columns text-center">
-				<a href="#"><img src=
-				"http://41.media.tumblr.com/337257d289cf40fe85360d85e12c3d7b/tumblr_nkqli01Y1n1ra5ebio1_1280.png"></a>
-
-				<p>Caption here!</p>
+				<a href="{PhotoURL-1280}"><img src="{PhotoURL-1280}" alt="{PhotoAlt}"/></a>
+                {block:Caption}{Caption}{/block:Caption}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">tag1</span></a>
-				<a href="#"><span class="label">tag2</span></a>
-				<a href="#"><span class="label">tag3</span></a>
-				<a href="#"><span class="label">tag4</span></a>
+				{block:HasTags}{block:Tags}
+				<a href="{TagURL}"><span class="label">{Tag}</span></a>
+				{/block:Tags}{/block:HasTags}
 			</div>
 
-			<div class="medium-6 columns text-right">
-				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px;" title=
-				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
-				"fa fa-refresh"></span>&nbsp; <span class=
-				"fa fa-heart"></span>&nbsp;
+			<div class="medium-6 columns right">
+				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
 		</div>
-	</div><!-- Panorama Post -->
+	</div>
+	{/block:Photo}
 
+    {block:Panorama}
 	<div class="row panel">
 		<div class="row">
 			<div class="small-3 columns">
 				<span class="fa fa-picture-o fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				<p class="text-right">23 February 2015</p>
+				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="large-12 columns text-center">
-				<a href="#"><img src=
-				"http://40.media.tumblr.com/92bb20eb5c72f0ec210978c3b8a52796/tumblr_nkhvc6G6Hg1sp78z1o1_r1_1280.jpg"></a>
-
-				<p>Caption here!</p>
+				<a href="{PhotoURL-Panorama}"><img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/></a>
+                {block:Caption}{Caption}{/block:Caption}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">tag1</span></a>
-				<a href="#"><span class="label">tag2</span></a>
-				<a href="#"><span class="label">tag3</span></a>
-				<a href="#"><span class="label">tag4</span></a>
+				{block:HasTags}{block:Tags}
+				<a href="{TagURL}"><span class="label">{Tag}</span></a>
+				{/block:Tags}{/block:HasTags}
 			</div>
 
 			<div class="medium-6 columns text-right">
-				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px;" title=
-				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
-				"fa fa-refresh"></span>&nbsp; <span class=
-				"fa fa-heart"></span>&nbsp;
+				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
 		</div>
-	</div><!-- Photoset Post -->
+	</div>
+	{/block:Panorama}
 
+    {block:Photoset}
 	<div class="row panel">
 		<div class="row">
 			<div class="small-3 columns">
 				<span class="fa fa-picture-o fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				<p class="text-right">23 February 2015</p>
+				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="large-12 columns text-center">
 				<ul class="small-block-grid-2 medium-block-grid-3">
+				{block:Photos}
 					<li>
-						<a href="#"><img src=
-						"http://40.media.tumblr.com/84984d37c9e9f44e9d267f9cc97aa359/tumblr_nkcfi5FJJP1qewacoo1_540.png"></a>
+						<a href="{PhotoURL-400}"><img src="{PhotoURL-400}" alt="{PhotoAlt}"/></a>
 					</li>
-
-					<li>
-						<a href="#"><img src=
-						"http://40.media.tumblr.com/875c60d640353f9b28770ec84a28d3b7/tumblr_nkf4r9zyoz1scmiclo1_1280.jpg"></a>
-					</li>
-
-					<li>
-						<a href="#"><img src=
-						"http://36.media.tumblr.com/57f91a94f864c4995b2bb1ecc0936513/tumblr_nkc2w6IK6n1sp78z1o1_1280.jpg"></a>
-					</li>
-
-					<li>
-						<a href="#"><img src=
-						"http://36.media.tumblr.com/6f20a08107dcf9e8ee7d25bba58fddff/tumblr_nk2lvaYViC1sp78z1o1_1280.jpg"></a>
-					</li>
-
-					<li>
-						<a href="#"><img src=
-						"http://40.media.tumblr.com/f0721f81d0117a309cf011188cbd3607/tumblr_nj9nxnwF3C1sp78z1o1_1280.jpg"></a>
-					</li>
-
-					<li>
-						<a href="#"><img src=
-						"http://40.media.tumblr.com/737bb78aca1fe7b5701bca29c6bcc070/tumblr_nj9o25tf5V1sp78z1o1_1280.jpg"></a>
-					</li>
+				{/block:Photos}
 				</ul>
-
-				<p>Caption here!</p>
+                {block:Caption}{Caption}{/block:Caption}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">tag1</span></a>
-				<a href="#"><span class="label">tag2</span></a>
-				<a href="#"><span class="label">tag3</span></a>
-				<a href="#"><span class="label">tag4</span></a>
+				{block:HasTags}{block:Tags}
+				<a href="{TagURL}"><span class="label">{Tag}</span></a>
+				{/block:Tags}{/block:HasTags}
 			</div>
 
 			<div class="medium-6 columns text-right">
-				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px;" title=
-				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
-				"fa fa-refresh"></span>&nbsp; <span class=
-				"fa fa-heart"></span>&nbsp;
+				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
 		</div>
-	</div><!-- Quote Post -->
+	</div>
+	{/block:Photoset}
 
+    {block:Quote}
 	<div class="row panel">
 		<div class="row">
 			<div class="small-3 columns">
 				<span class="fa fa-quote-right fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				<p class="text-right">23 February 2015</p>
+				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="large-12 columns">
 				<blockquote>
-					Those people who think they know everything are a great
-					annoyance to those of us who do.<cite>Isaac Asimov</cite>
+					{Quote}{block:Source}<cite>{Source}</cite>{/block:Source}
 				</blockquote>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">tag1</span></a>
-				<a href="#"><span class="label">tag2</span></a>
-				<a href="#"><span class="label">tag3</span></a>
-				<a href="#"><span class="label">tag4</span></a>
+				{block:HasTags}{block:Tags}
+				<a href="{TagURL}"><span class="label">{Tag}</span></a>
+				{/block:Tags}{/block:HasTags}
 			</div>
 
 			<div class="medium-6 columns text-right">
-				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px;" title=
-				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
-				"fa fa-refresh"></span>&nbsp; <span class=
-				"fa fa-heart"></span>&nbsp;
-			</div>
-		</div>
-	</div><!-- Link Post -->
-
-	<div class="row panel">
-		<div class="row">
-			<div class="medium-9 columns">
-				<a class="button expand" href="#">Linkey thing</a>
-			</div>
-
-			<div class="medium-3 columns">
-				<p class="text-right">23 February 2015</p>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="large-12 columns">
-				<p>Do you ever just get the feeling you could live in Ikea? It
-				just seems to have everything, and it’s like one big maze… And
-				it doesn’t even stop at furniture! I might have gotten slightly
-				too comfy on a random sofa at some point or other.</p>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="medium-6 columns">
-				<a href="#"><span class="label">tag1</span></a>
-				<a href="#"><span class="label">tag2</span></a>
-				<a href="#"><span class="label">tag3</span></a>
-				<a href="#"><span class="label">tag4</span></a>
-			</div>
-
-			<div class="medium-6 columns text-right">
-				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px;" title=
-				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
-				"fa fa-refresh"></span>&nbsp; <span class=
-				"fa fa-heart"></span>&nbsp;
+				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
 		</div>
 	</div>
-	
-	<!-- Chat Post -->
+	{/block:Quote}
+
+    {block:Link}
 	<div class="row panel">
 		<div class="row">
 			<div class="medium-9 columns">
-				<h2>Life, the universe and everything</h2>
+				<a class="button expand" href="{URL}" {Target}>{Name}</a>
 			</div>
 
 			<div class="medium-3 columns">
-				<p class="text-right">23 February 2015</p>
+				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
+			</div>
+		</div>
+
+		{block:Description}<div class="row">
+			<div class="large-12 columns">
+				{Description}
+			</div>
+		</div>{/block:Description}
+
+		<div class="row">
+			<div class="medium-6 columns">
+				{block:HasTags}{block:Tags}
+				<a href="{TagURL}"><span class="label">{Tag}</span></a>
+				{/block:Tags}{/block:HasTags}
+			</div>
+
+			<div class="medium-6 columns text-right">
+				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
+			</div>
+		</div>
+	</div>
+	{/block:Link}
+
+    {block:Chat}
+	<div class="row panel">
+		<div class="row">
+			<div class="medium-9 columns">
+				{block:Title}<h2><a href="{Permalink}"></a>{Title}</a></h2>{/block:Title}
+			</div>
+
+			<div class="medium-3 columns">
+				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="large-12 columns">
 				<hr>
-				<p>Eelviny: What is the meaning of life, the universe and everything?</p>
-				<hr>
-				<p>Random: The meaning of life is Math.</p>
-				<hr>
-				<p>Eelviny: How?</p>
-				<hr>
-				<p>Random: Take the position of each letter of m-a-t-h in the alphabet. Take those numbers and add them together. What do you get?</p>
-				<hr>
+				{block:Lines}{Line}
+				<hr>{/block:Lines}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">tag1</span></a>
-				<a href="#"><span class="label">tag2</span></a>
-				<a href="#"><span class="label">tag3</span></a>
-				<a href="#"><span class="label">tag4</span></a>
+				{block:HasTags}{block:Tags}
+				<a href="{TagURL}"><span class="label">{Tag}</span></a>
+				{/block:Tags}{/block:HasTags}
 			</div>
 
 			<div class="medium-6 columns text-right">
-				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px;" title=
-				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
-				"fa fa-refresh"></span>&nbsp; <span class=
-				"fa fa-heart"></span>&nbsp;
+				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
 		</div>
 	</div>
+	{/block:Chat}
 	
-	<!-- Audio Post -->
+	{block:Audio}
 	<div class="row panel">
 		<div class="row">
 			<div class="small-3 columns">
 				<span class="fa fa-volume-up fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				<p class="text-right">23 February 2015</p>
+				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="large-12 columns text-center">
 				<div class="flex-video">
-					<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/180849045&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+					{block:AudioEmbed}{AudioEmbed}{/block:AudioEmbed}
+					{block:AudioPlayer}{AudioPlayer}{/block:AudioPlayer}
 				</div>
-				<p>Caption here!</p>
+				{block:ExternalAudio}<a class="button" href="{ExternalAudioURL}" target="_blank">Download</a>{/block:ExternalAudio}
+				{block:Caption}{Caption}{/block:Caption}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">tag1</span></a>
-				<a href="#"><span class="label">tag2</span></a>
-				<a href="#"><span class="label">tag3</span></a>
-				<a href="#"><span class="label">tag4</span></a>
+				{block:HasTags}{block:Tags}
+				<a href="{TagURL}"><span class="label">{Tag}</span></a>
+				{/block:Tags}{/block:HasTags}
 			</div>
 
 			<div class="medium-6 columns text-right">
-				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px;" title=
-				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
-				"fa fa-refresh"></span>&nbsp; <span class=
-				"fa fa-heart"></span>&nbsp;
+				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
 		</div>
 	</div>
+	{/block:Audio}
 	
-	<!-- Video Post -->
+	{block:Video}
 	<div class="row panel">
 		<div class="row">
 			<div class="small-3 columns">
 				<span class="fa fa-youtube-play fa-2x"></span>
 			</div>
 			<div class="small-9 columns">
-				<p class="text-right">23 February 2015</p>
+				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="large-12 columns text-center">
 				<div class="flex-video">
-					<iframe width="640" height="360" src="https://www.youtube.com/embed/VKvkBQukTgU" frameborder="0" allowfullscreen></iframe>
+					<div class="flex-video">
+					{Video-700}
+					</div>
 				</div>
-				<p>...Reality check please</p>
+				{block:Caption}{Caption}{/block:Caption}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">tag1</span></a>
-				<a href="#"><span class="label">tag2</span></a>
-				<a href="#"><span class="label">tag3</span></a>
-				<a href="#"><span class="label">tag4</span></a>
+				{block:HasTags}{block:Tags}
+				<a href="{TagURL}"><span class="label">{Tag}</span></a>
+				{/block:Tags}{/block:HasTags}
 			</div>
 
 			<div class="medium-6 columns text-right">
-				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px;" title=
-				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
-				"fa fa-refresh"></span>&nbsp; <span class=
-				"fa fa-heart"></span>&nbsp;
+				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
 		</div>
 	</div>
+	{/block:Video}
 	
-	<!-- Answer Post -->
+	{block:Answer}
 	<div class="row panel">
 		<div class="row">
 			<div class="small-3 columns">
-				<span class="fa fa-question fa-2x"></span>
+				<span class="fa fa-question fa-2x"></span> {Asker}
 			</div>
 			<div class="small-9 columns">
-				<p class="text-right">23 February 2015</p>
+				{block:Date}<p class="text-right">{DayOfMonth} {Month} {Year}</p>{/block:Date}
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="large-12 columns">
-				<h3>Bear Grylls? Bear Grylls? What kind of a name is that? Are you an animal or a bit of an oven? I bet you went to private school</h3>
+				<h3>{Question}</h3>
 				<hr>
-				<p>With yer mates, Badger Hobbs and Gasto Squirrel…</p>
+				<p>{Replies}</p>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="medium-6 columns">
-				<a href="#"><span class="label">tag1</span></a>
-				<a href="#"><span class="label">tag2</span></a>
-				<a href="#"><span class="label">tag3</span></a>
-				<a href="#"><span class="label">tag4</span></a>
+				{block:HasTags}{block:Tags}
+				<a href="{TagURL}"><span class="label">{Tag}</span></a>
+				{/block:Tags}{/block:HasTags}
 			</div>
 
 			<div class="medium-6 columns text-right">
-				<a href="#"><span class="has-tip" data-tooltip="" style=
-				"color:#cccccc; font-size:15px;" title=
-				"Reblogged from John123">24 Notes</span></a>&nbsp; <span class=
-				"fa fa-refresh"></span>&nbsp; <span class=
-				"fa fa-heart"></span>&nbsp;
+				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
 		</div>
 	</div>
+	{/block:Answer}
+	
+{/block:Posts}
 	
 	<div class="row">
-		<div class="large-8 columns">
+		<div class="small-12 columns">
 			<div class="pagination-centered">
 				<ul class="pagination" role="menubar" aria-label="Pagination">
 					<li class="arrow unavailable" aria-disabled="true"><a href="">&laquo; Previous</a></li>
-					<li class="current unavailable"><a href="">1/13</a></li>
+					<li class="current"><a href="">1</a></li>
+					<li><a href="">2</a></li>
+					<li><a href="">3</a></li>
+					<li><a href="">4</a></li>
+					<li class="unavailable" aria-disabled="true"><a href="">&hellip;</a></li>
+					<li><a href="">12</a></li>
+					<li><a href="">13</a></li>
 					<li class="arrow"><a href="">Next &raquo;</a></li>
 				</ul>
 			</div>
 		</div>
-		<div class="large-4 columns small-text-center large-text-right">
-			<h6 class="subheader">Theme created by Eelviny - 2013-2015</h6>
+	</div>
+	<div class="row"
+		<div class="small-12 columns">
+			<h6 class="subheader small-text-center medium-text-right">Theme created by Eelviny - 2013-2015</h6>
 		</div>
 	</div>
 	
