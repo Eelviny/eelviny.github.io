@@ -6,18 +6,23 @@
 	<meta charset="utf-8">
 	<!-- If you delete this meta tag World War Z will become a reality -->
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta name="theme-color" content="{AccentColor}">
 
-	<title>{block:TagPage}{Tag} posts - {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+	<title>{block:TagPage}Tag: {Tag} - {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
 	<link rel="shortcut icon" href="{Favicon}">
     <link rel="apple-touch-icon" href="{PortraitURL-128}">
+    <link rel="icon" sizes="128x128" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     {block:Description}
     <meta name="description" content="{MetaDescription}" />
     {/block:Description}
-    {block:PostSummary}
-    <meta property="og:title" content="{PostSummary} - {Name}" />
-    {/block:PostSummary}
-	<!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
+    <meta name="select:Alert Style" content="" title="Standard" />
+    <meta name="select:Alert Style" content="secondary" title="Secondary" />
+    <meta name="select:Alert Style" content="success" title="Success" />
+    <meta name="select:Alert Style" content="warning" title="Warning" />
+    <meta name="select:Alert Style" content="alert" title="Alert" />
+    <meta name="select:Alert Style" content="info" title="Info" />
+    <meta name="text:Alert Box" content="" />
 	<link href=
 	"https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/normalize.min.css"
 	rel="stylesheet">
@@ -28,22 +33,44 @@
 	body, h1, h2, h3, h4, h5, h6, button, .button, .label, select {
 		font-family: "Open Sans", sans-serif; }
 
-	#header {
-		border-width: 0px; }
+	.headerimage {
+	    padding-bottom: 1.25rem;
+	    background-color: {AccentColor};
+		{block:ShowHeaderImage}
+		background-image: url("{HeaderImage}");
+		background-size: 105% 105%;
+        background-repeat: no-repeat;
+	    background-attachment: fixed;
+	    overflow: hidden;
+	    {/block:ShowHeaderImage} 
+	}
 		
 	@media only screen and (max-width: 64em) { 
 		.panel {
 			border-width: 0px; } }
     
-    .scrollToTop {
-        position:fixed;
-        bottom:20px;
-        right:20px;
-        color: #cccccc; }
-    .scrollToTop:focus {
+    .totop {
+        position: fixed;
+        bottom: 1.25rem;
+        right: 1.25rem;
         color: #cccccc;
+        -o-transition:.2s;
+        -ms-transition:.2s;
+        -moz-transition:.2s;
+        -webkit-transition:.2s;
+        transition:.2s; }
+    .totop:hover {
+        color: #000000;
     }
-	    
+    .totop:focus {
+        color:#cccccc;
+    }
+    
+    #socialico a {
+        color:#000000;
+    }
+    
+    {CustomCSS}
 	</style>
 	<!-- FontAwesome -->
 	<link href=
@@ -67,6 +94,71 @@
 </head>
 
 <body>
+	
+	<div class="headerimage">
+	    <div class="row">
+		    <br>
+
+		    {block:ShowAvatar}<div class="medium-2 columns show-for-medium-up"><a href="{BlogURL}"><img src="{PortraitURL-128}"></a></div>{/block:ShowAvatar} 
+
+		    <div class="medium-10 columns">
+		    	{block:ShowTitle} <a href="{BlogURL}"><h1 class="small-only-text-center">{Title}</h1></a>{/block:ShowTitle} 
+		        <ul class="inline-list" id="socialico">
+	    			<li>
+	    				<a title="Github" href="https://github.com/Eelviny" {Target}><span class="fa fa-github fa-fw"></span></a>
+	    			</li>
+
+	    			<li>
+	    				<a title="Google+" href="https://plus.google.com/+ElvinLuffiny" {Target}><span class="fa fa-google-plus fa-fw"></span></a>
+	    			</li>
+	    			
+	    			<li>
+	    				<a title="Last.fm" href="http://www.last.fm/user/Eelviny" {Target}><span class="fa fa-lastfm fa-fw"></span></a>
+	    			</li>
+	    			
+	    			<li>
+	    				<a title="Linkedin" href="https://www.linkedin.com/profile/view?id=358640316" {Target}><span class="fa fa-linkedin fa-fw"></span></a>
+	    			</li>
+	    			
+	    			<li>
+	    				<a title="Pinterest" href="https://www.pinterest.com/eelviny" {Target}><span class="fa fa-pinterest fa-fw"></span></a>
+	    			</li>
+
+	    			<li>
+	    				<a title="Reddit" href="http://www.reddit.com/user/Eelviny/" {Target}><span class="fa fa-reddit fa-fw"></span></a>
+	    			</li>
+
+	    			<li>
+	    				<a title="Soundcloud" href="https://soundcloud.com/eelviny" {Target}><span class="fa fa-soundcloud fa-fw"></span></a>
+	    			</li>
+
+	    			<li>
+		    			<a title="Steam" href="http://steamcommunity.com/id/eelviny/" {Target}><span class="fa fa-steam fa-fw"></span></a>
+		    		</li>
+		    		
+		    		<li>
+		    			<a title="Tumblr" href="https://www.tumblr.com/blog/eelviny" {Target}><span class="fa fa-tumblr fa-fw"></span></a>
+		    		</li>
+
+		    		<li>
+		    			<a title="Twitter" href="https://twitter.com/elvinluff" {Target}><span class="fa fa-twitter fa-fw"></span></a>
+		    		</li>
+		    		
+		    		<li>
+		    			<a title="Youtube" href="https://www.youtube.com/playlist?list=LLfPg_h5xrCiortxxkyFWemw" {Target}><span class="fa fa-youtube-play fa-fw"></span></a>
+		    		</li>
+
+		    		<li>
+		    			<a title="RSS" href="{RSS}" {Target}><span class="fa fa-rss fa-fw"></span></a>
+		    		</li>
+		    	</ul>
+		    </div>
+            {block:ShowDescription} <div class="small-12 columns">
+	    		{Description}
+	    	</div>{/block:ShowDescription} 
+    	</div>
+    </div>
+	
 	<div class="sticky">
 		<nav class="top-bar" data-topbar="">
 			<ul class="title-area">
@@ -82,19 +174,15 @@
 
 			<section class="top-bar-section">
 				<!-- Right Nav Section -->
-
 				<ul class="right">
 					{block:HasPages}{block:Pages}<li>
 						<a href="{URL}">{Label}</a>
 					</li>{/block:Pages}{/block:HasPages}
 					{block:AskEnabled}<li>
-						<a href="/ask">Questions</a>
+						<a href="{BlogURL}ask">Questions</a>
 					</li>{/block:AskEnabled}
 					<li>
-						<a href="/archive">Archive</a>
-					</li>
-					<li>
-						<a href="/random">Random Post</a>
+						<a href="{BlogURL}archive">Archive</a>
 					</li>
 
 					<li class="has-dropdown">
@@ -102,348 +190,298 @@
 
 						<ul class="dropdown">
 							<li>
-								<a href="#"><span class="fa fa-github"></span> Github</a>
+								<a title="Github" href="https://github.com/Eelviny" {Target}><span class="fa fa-github fa-fw"></span> Github</a>
 							</li>
 							<li>
-								<a href="#"><span class="fa fa-google-plus"></span> Google+</a>
+								<a title="Google+" href="https://plus.google.com/+ElvinLuffiny" {Target}><span class="fa fa-google-plus fa-fw"></span> Google+</a>
 							</li>
 							<li>
-								<a href="#"><span class="fa fa-reddit"></span> Reddit</a>
+								<a title="Last.fm" href="http://www.last.fm/user/Eelviny" {Target}><span class="fa fa-lastfm fa-fw"></span> Last.fm</a>
 							</li>
 							<li>
-								<a href="#"><span class="fa fa-soundcloud"></span> Soundcloud</a>
+								<a title="Linkedin" href="https://www.linkedin.com/profile/view?id=358640316" {Target}><span class="fa fa-linkedin fa-fw"></span> LinkedIn</a>
 							</li>
 							<li>
-								<a href="#"><span class="fa fa-steam"></span> Steam</a>
+								<a title="Pinterest" href="https://www.pinterest.com/eelviny" {Target}><span class="fa fa-pinterest fa-fw"></span> Pinterest</a>
 							</li>
 							<li>
-								<a href="#"><span class="fa fa-twitter"></span> Twitter</a>
+								<a title="Reddit" href="http://www.reddit.com/user/Eelviny/" {Target}><span class="fa fa-reddit fa-fw"></span> Reddit</a>
 							</li>
 							<li>
-								<a href="#"><span class="fa fa-rss"></span> RSS</a>
+								<a title="Soundcloud" href="https://soundcloud.com/eelviny" {Target}><span class="fa fa-soundcloud fa-fw"></span> Soundcloud</a>
+							</li>
+							<li>
+								<a title="Steam" href="http://steamcommunity.com/id/eelviny/" {Target}><span class="fa fa-steam fa-fw"></span> Steam</a>
+							</li>
+							<li>
+								<a title="Tumblr" href="https://www.tumblr.com/blog/eelviny" {Target}><span class="fa fa-tumblr fa-fw"></span> Tumblr</a>
+							</li>
+							<li>
+								<a title="Twitter" href="https://twitter.com/elvinluff" {Target}><span class="fa fa-twitter fa-fw"></span> Twitter</a>
+							</li>
+							<li>
+								<a title="Youtube" href="https://www.youtube.com/playlist?list=LLfPg_h5xrCiortxxkyFWemw" {Target}><span class="fa fa-youtube-play fa-fw"></span> Youtube</a>
+							</li>
+							<li>
+								<a title="RSS" href="{RSS}" {Target}><span class="fa fa-rss fa-fw"></span> RSS</a>
 							</li>
 						</ul>
 					</li>
+				    <li class="active">
+				        <a title="Random Post" href="/random">Random Post</a>
+				    </li>
 				</ul>
 			</section>
 		</nav>
 	</div>
 	
-	
-	<div id="header" class="panel callout">
-	    <div class="row">
-		    <br>
+	<div style="padding:0.625rem"></div>
 
-		    <div class="medium-2 columns show-for-medium-up"><img src=
-		    "{PortraitURL-128}"></div>
-
-		    <div class="medium-10 columns">
-		    	<h1 class="small-only-text-center">Eelviny</h1>
-
-	    		<p>Hi, my name's Elvin Luff, but I go by the username Eelviny. I am
-	    		many things: Web developer, student, outdoor persuits leader,
-	    		charity worker, systems administrator, and a world class
-	    		procrastinator. Welcome to my world.</p>
-
-	    		<ul class="inline-list right el-logo">
-	    			<li>
-	    				<a href="#"><span class="fa fa-github"></span></a>
-	    			</li>
-
-	    			<li>
-	    				<a href="#"><span class="fa fa-google-plus"></span></a>
-	    			</li>
-
-	    			<li>
-	    				<a href="#"><span class="fa fa-reddit"></span></a>
-	    			</li>
-
-	    			<li>
-	    				<a href="#"><span class="fa fa-soundcloud"></span></a>
-	    			</li>
-
-	    			<li>
-		    			<a href="#"><span class="fa fa-steam"></span></a>
-		    		</li>
-
-		    		<li>
-		    			<a href="#"><span class="fa fa-twitter"></span></a>
-		    		</li>
-
-		    		<li>
-		    			<a href="#"><span class="fa fa-rss"></span></a>
-		    		</li>
-		    	</ul>
-	    	</div>
-    	</div>
-	</div>
-
+    {block:IfAlertBox}
 	<div class="row">
-		<div class="alert-box warning radius" data-alert="">
-			<span class="fa fa-warning"></span> Woo, new website look! Keep in mind it's still a big work-in-progress sort thing, so expect stuff to be missing or broken... 
+		<div class="alert-box {select:Alert Style} radius" data-alert="">
+			{text:Alert Box}
 			<a class="close" href="#">&times;</a>
 		</div>
 	</div>
-	
+	{/block:IfAlertBox}
+
+<div class="row">
+    {block:DayPage}<div class="large-12 columns">
+        <h2><span class="fa fa-calendar"></span> {DayOfMonth}{DayOfMonthSuffix} {Month} {Year}</h2>
+    </div>{/block:DayPage}
+    {block:TagPage}<div class="large-12 columns">
+        <h2><span class="fa fa-tags"></span> <span class="button">{Tag}</span></h2>
+    </div>{/block:TagPage}
+    {block:SearchPage}<div class="large-12 columns">
+        <h2><span class="fa fa-search"></span> {SearchQuery}</h2>
+    </div>{/block:SearchPage}
+</div>
+
+{block:NoSearchResults}<div class="row">
+    <div class="small-12 columns text-center">
+        <div style="color:#cccccc; font-size:150px">
+            <span class="fa fa-times-circle-o fa-lg"></span>
+        </div>
+        <h3 class="subheader">Sorry! The item you searched for can't be found.</h3>
+        <br><br>
+    </div>
+</div>{/block:NoSearchResults}
 	
 {block:Posts}
     {block:Text}
-	<div class="row panel">
-		<div class="row">
-			<div class="medium-9 columns">
-				{block:Title}<h2><a href="{Permalink}"></a>{Title}</a></h2>{/block:Title}
+	<div class="row panel text-post">
+			<div class="small-3 columns">
+				<a href="{Permalink}"><span class="fa fa-font fa-2x"></span></a>
 			</div>
 
-			<div class="medium-3 columns">
-				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
+			<div class="small-9 columns">
+				{block:Date}<a href="{BlogURL}day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"><p class="text-right">{DayOfMonth} {Month} {Year}</p></a>{/block:Date}
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="large-12 columns">
+			<div class="small-12 columns">
+			    {block:Title}<h2>{Title}</h2>{/block:Title}
 				{Body}
 			</div>
-		</div>
-
-		<div class="row">
 			<div class="medium-6 columns">
-			    {block:HasTags}{block:Tags}
+			    {block:HasTags}
+			    <span class="fa fa-tags"></span> 
+			    {block:Tags}
 				<a href="{TagURL}"><span class="label">{Tag}</span></a>
-				{/block:Tags}{/block:HasTags}
+				{/block:Tags}{/block:HasTags}&nbsp;
 			</div>
 
 			<div class="medium-6 columns text-right">
-				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
-                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
+				{block:NoteCount}<a href="{Permalink}#post-notes">{NoteCountWithLabel}</a>{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:10px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
-		</div>
 	</div>
 	{/block:Text}
 	
 	{block:Photo}
-	<div class="row panel">
-		<div class="row">
+	<div class="row panel photo-post">
 			<div class="small-3 columns">
-				<span class="fa fa-picture-o fa-2x"></span>
+				<a href="{Permalink}"><span class="fa fa-picture-o fa-2x"></span></a>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
+				{block:Date}<a href="{BlogURL}day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"><p class="text-right">{DayOfMonth} {Month} {Year}</p></a>{/block:Date}
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="large-12 columns text-center">
+			<div class="small-12 columns text-center">
 				<a href="#" data-reveal-id="photo{PostID}"><img src="{PhotoURL-1280}" alt="{PhotoAlt}"/></a>
                 {block:Caption}{Caption}{/block:Caption}
 			</div>
-		</div>
-
-		<div class="row">
 			<div class="medium-6 columns">
-				{block:HasTags}{block:Tags}
+				{block:HasTags}
+				<span class="fa fa-tags"></span> 
+				{block:Tags}
 				<a href="{TagURL}"><span class="label">{Tag}</span></a>
-				{/block:Tags}{/block:HasTags}
+				{/block:Tags}{/block:HasTags}&nbsp;
 			</div>
-
-			<div class="medium-6 columns right">
-				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
-                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
+			<div class="medium-6 columns text-right">
+				{block:NoteCount}<a href="{Permalink}#post-notes">{NoteCountWithLabel}</a>{/block:NoteCount}&nbsp;&nbsp; 
+                <span style="padding-left:10px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
-		</div>
 	</div>
-	<div id="photo{PostID}" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-        <img src="{PhotoURL-1280}" alt="{PhotoAlt}"/>
+	<div id="photo{PostID}" class="reveal-modal medium" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <div class="text-center"><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></div>
         <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>
 	{/block:Photo}
 
     {block:Panorama}
-	<div class="row panel">
-		<div class="row">
+	<div class="row panel panorama-post">
 			<div class="small-3 columns">
-				<span class="fa fa-picture-o fa-2x"></span>
+				<a href="{Permalink}"><span class="fa fa-picture-o fa-2x"></span></a>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
+				{block:Date}<a href="{BlogURL}day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"><p class="text-right">{DayOfMonth} {Month} {Year}</p></a>{/block:Date}
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="large-12 columns text-center">
-				<a href="{PhotoURL-Panorama}"><img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/></a>
+			<div class="small-12 columns text-center">
+				<a href="#" data-reveal-id="panorama{PostID}"><img src="{PhotoURL-1280}" alt="{PhotoAlt}"/></a>
                 {block:Caption}{Caption}{/block:Caption}
 			</div>
-		</div>
-
-		<div class="row">
 			<div class="medium-6 columns">
-				{block:HasTags}{block:Tags}
+				{block:HasTags}
+				<span class="fa fa-tags"></span> 
+				{block:Tags}
 				<a href="{TagURL}"><span class="label">{Tag}</span></a>
-				{/block:Tags}{/block:HasTags}
+				{/block:Tags}{/block:HasTags}&nbsp;
 			</div>
-
 			<div class="medium-6 columns text-right">
-				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
-                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
+				{block:NoteCount}<a href="{Permalink}#post-notes">{NoteCountWithLabel}</a>{/block:NoteCount}&nbsp;&nbsp;
+                <span style="padding-left:10px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
-		</div>
 	</div>
+	<div id="panorama{PostID}" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <div class="text-center"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/></div>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
 	{/block:Panorama}
 
     {block:Photoset}
-	<div class="row panel">
-		<div class="row">
+	<div class="row panel photoset-post">
 			<div class="small-3 columns">
-				<span class="fa fa-picture-o fa-2x"></span>
+				<a href="{Permalink}"><span class="fa fa-picture-o fa-2x"></span></a>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
+				{block:Date}<a href="{BlogURL}day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"><p class="text-right">{DayOfMonth} {Month} {Year}</p></a>{/block:Date}
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="large-12 columns text-center">
-				<ul class="small-block-grid-2 medium-block-grid-3">
+			<div class="small-12 columns text-center">
+				<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
 				{block:Photos}
 					<li>
-						<a href="{PhotoURL-400}"><img src="{PhotoURL-400}" alt="{PhotoAlt}"/></a>
+						<img src="{PhotoURL-400}" alt="{PhotoAlt}"/>
 					</li>
 				{/block:Photos}
 				</ul>
                 {block:Caption}{Caption}{/block:Caption}
 			</div>
-		</div>
-
-		<div class="row">
 			<div class="medium-6 columns">
-				{block:HasTags}{block:Tags}
+				{block:HasTags}
+				<span class="fa fa-tags"></span> 
+				{block:Tags}
 				<a href="{TagURL}"><span class="label">{Tag}</span></a>
-				{/block:Tags}{/block:HasTags}
+				{/block:Tags}{/block:HasTags}&nbsp;
 			</div>
-
 			<div class="medium-6 columns text-right">
-				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
-                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
+				{block:NoteCount}<a href="{Permalink}#post-notes">{NoteCountWithLabel}</a>{/block:NoteCount}&nbsp;&nbsp;
+                <span style="padding-left:10px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
-		</div>
 	</div>
 	{/block:Photoset}
 
     {block:Quote}
-	<div class="row panel">
-		<div class="row">
+	<div class="row panel quote-post">
 			<div class="small-3 columns">
-				<span class="fa fa-quote-right fa-2x"></span>
+				<a href="{Permalink}"><span class="fa fa-quote-right fa-2x"></span></a>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
+				{block:Date}<a href="{BlogURL}day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"><p class="text-right">{DayOfMonth} {Month} {Year}</p></a>{/block:Date}
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="large-12 columns">
+			<div class="small-12 columns">
 				<blockquote>
 					{Quote}{block:Source}<cite>{Source}</cite>{/block:Source}
 				</blockquote>
 			</div>
-		</div>
-
-		<div class="row">
 			<div class="medium-6 columns">
-				{block:HasTags}{block:Tags}
+				{block:HasTags}
+				<span class="fa fa-tags"></span> 
+				{block:Tags}
 				<a href="{TagURL}"><span class="label">{Tag}</span></a>
-				{/block:Tags}{/block:HasTags}
+				{/block:Tags}{/block:HasTags}&nbsp;
 			</div>
-
 			<div class="medium-6 columns text-right">
-				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
-                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
+				{block:NoteCount}<a href="{Permalink}#post-notes">{NoteCountWithLabel}</a>{/block:NoteCount}&nbsp;&nbsp;
+                <span style="padding-left:10px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
-		</div>
 	</div>
 	{/block:Quote}
 
     {block:Link}
-	<div class="row panel">
-		<div class="row">
-			<div class="medium-9 columns">
-				<a class="button expand" href="{URL}" {Target}>{Name}{block:Host} - {Host}{/block:Host}</a>
+	<div class="row panel link-post">
+			<div class="small-3 columns">
+			    <a href="{Permalink}"><span class="fa fa-link fa-2x"></span></a>
 			</div>
 
-			<div class="medium-3 columns">
-				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
+			<div class="small-9 columns">
+				{block:Date}<a href="{BlogURL}day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"><p class="text-right">{DayOfMonth} {Month} {Year}</p></a>{/block:Date}
 			</div>
-		</div>
-
-		{block:Description}<div class="row">
-			<div class="large-12 columns">
+		{block:Description}
+			<div class="small-12 columns">
+			    <a class="button expand" href="{URL}" {Target}>{Name}{block:Host} - {Host}{/block:Host}</a>
 				{Description}
 			</div>
-		</div>{/block:Description}
-
-		<div class="row">
+		{/block:Description}
 			<div class="medium-6 columns">
-				{block:HasTags}{block:Tags}
+				{block:HasTags}
+				<span class="fa fa-tags"></span> 
+				{block:Tags}
 				<a href="{TagURL}"><span class="label">{Tag}</span></a>
-				{/block:Tags}{/block:HasTags}
+				{/block:Tags}{/block:HasTags}&nbsp;
 			</div>
-
 			<div class="medium-6 columns text-right">
-				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
-                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
+				{block:NoteCount}<a href="{Permalink}#post-notes">{NoteCountWithLabel}</a>{/block:NoteCount}&nbsp;&nbsp;
+                <span style="padding-left:10px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
-		</div>
 	</div>
 	{/block:Link}
 
     {block:Chat}
-	<div class="row panel">
-		<div class="row">
-			<div class="medium-9 columns">
-				{block:Title}<h2><a href="{Permalink}"></a>{Title}</a></h2>{/block:Title}
+	<div class="row panel chat-post">
+		    <div class="small-3 columns">
+		        <a href="{Permalink}"><span class="fa fa-comments fa-2x"></span></a>
+		    </div>
+			<div class="small-9 columnst">
+				{block:Date}<a href="{BlogURL}day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"><p class="text-right">{DayOfMonth} {Month} {Year}</p></a>{/block:Date}
 			</div>
-
-			<div class="medium-3 columns">
-				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
-			</div>
-		</div>
-
-		<div class="row">
 			<div class="large-12 columns">
+			    {block:Title}<h2>{Title}</h2>{/block:Title}
 				<hr>
 				{block:Lines}{Line}
 				<hr>{/block:Lines}
 			</div>
-		</div>
-
-		<div class="row">
 			<div class="medium-6 columns">
-				{block:HasTags}{block:Tags}
+				{block:HasTags}
+				<span class="fa fa-tags"></span> 
+				{block:Tags}
 				<a href="{TagURL}"><span class="label">{Tag}</span></a>
-				{/block:Tags}{/block:HasTags}
+				{/block:Tags}{/block:HasTags}&nbsp;
 			</div>
-
 			<div class="medium-6 columns text-right">
-				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
-                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
+				{block:NoteCount}<a href="{Permalink}#post-notes">{NoteCountWithLabel}</a>{/block:NoteCount}&nbsp;&nbsp;
+                <span style="padding-left:10px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
-		</div>
 	</div>
 	{/block:Chat}
 	
 	{block:Audio}
-	<div class="row panel">
-		<div class="row">
+	<div class="row panel audio-post">
 			<div class="small-3 columns">
-				<span class="fa fa-volume-up fa-2x"></span>
+				<a href="{Permalink}"><span class="fa fa-volume-up fa-2x"></span></a>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
+				{block:Date}<a href="{BlogURL}day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"><p class="text-right">{DayOfMonth} {Month} {Year}</p></a>{/block:Date}
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="large-12 columns text-center">
+			<div class="small-12 columns text-center">
 				<div class="flex-video">
 					{block:AudioEmbed}{AudioEmbed}{/block:AudioEmbed}
 					{block:AudioPlayer}{AudioPlayer}{/block:AudioPlayer}
@@ -451,101 +489,93 @@
 				{block:ExternalAudio}<a class="button" href="{ExternalAudioURL}" target="_blank">Download</a>{/block:ExternalAudio}
 				{block:Caption}{Caption}{/block:Caption}
 			</div>
-		</div>
-
-		<div class="row">
 			<div class="medium-6 columns">
-				{block:HasTags}{block:Tags}
+				{block:HasTags}
+				<span class="fa fa-tags"></span> 
+				{block:Tags}
 				<a href="{TagURL}"><span class="label">{Tag}</span></a>
-				{/block:Tags}{/block:HasTags}
+				{/block:Tags}{/block:HasTags}&nbsp;
 			</div>
-
 			<div class="medium-6 columns text-right">
-				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
-                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
+				{block:NoteCount}<a href="{Permalink}#post-notes">{NoteCountWithLabel}</a>{/block:NoteCount}&nbsp;&nbsp;
+                <span style="padding-left:10px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
-		</div>
 	</div>
 	{/block:Audio}
 	
 	{block:Video}
-	<div class="row panel">
-		<div class="row">
+	<div class="row panel video-post">
 			<div class="small-3 columns">
-				<span class="fa fa-youtube-play fa-2x"></span>
+				<a href="{Permalink}"><span class="fa fa-youtube-play fa-2x"></span></a>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
+				{block:Date}<a href="{BlogURL}day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"><p class="text-right">{DayOfMonth} {Month} {Year}</p></a>{/block:Date}
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="large-12 columns text-center">
+			<div class="small-12 columns text-center">
 				<div class="flex-video">
-					<div class="flex-video">
 					{Video-700}
-					</div>
 				</div>
 				{block:Caption}{Caption}{/block:Caption}
 			</div>
-		</div>
-
-		<div class="row">
 			<div class="medium-6 columns">
-				{block:HasTags}{block:Tags}
+				{block:HasTags}
+				<span class="fa fa-tags"></span> 
+				{block:Tags}
 				<a href="{TagURL}"><span class="label">{Tag}</span></a>
-				{/block:Tags}{/block:HasTags}
+				{/block:Tags}{/block:HasTags}&nbsp;
 			</div>
-
 			<div class="medium-6 columns text-right">
-				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
-                <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
+				{block:NoteCount}<a href="{Permalink}#post-notes">{NoteCountWithLabel}</a>{/block:NoteCount}&nbsp;&nbsp;
+                <span style="padding-left:10px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
-		</div>
 	</div>
 	{/block:Video}
 	
 	{block:Answer}
-	<div class="row panel">
-		<div class="row">
+	<div class="row panel answer-post">
 			<div class="small-3 columns">
-				<span class="fa fa-question fa-2x"></span> {Asker}
+				<a href="{Permalink}"><span class="fa fa-question-circle fa-2x"></span></a>
 			</div>
 			<div class="small-9 columns">
-				{block:Date}<p class="text-right">{DayOfMonth}&nbsp;{Month}&nbsp;{Year}</p>{/block:Date}
+				{block:Date}<a href="{BlogURL}day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"><p class="text-right">{DayOfMonth} {Month} {Year}</p></a>{/block:Date}
 			</div>
-		</div>
-
-		<div class="row">
-			<div class="large-12 columns">
-				<h3>{Question}</h3>
+			<div class="small-12 columns">
+			    <h2>{Asker} asks...</h2>
+				<p>{Question}</p>
 				<hr>
 				<p>{Replies}</p>
 			</div>
-		</div>
-
-		<div class="row">
 			<div class="medium-6 columns">
-				{block:HasTags}{block:Tags}
+				{block:HasTags}
+				<span class="fa fa-tags"></span> 
+				{block:Tags}
 				<a href="{TagURL}"><span class="label">{Tag}</span></a>
-				{/block:Tags}{/block:HasTags}
+				{/block:Tags}{/block:HasTags}&nbsp;
 			</div>
-
 			<div class="medium-6 columns text-right">
-				{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}&nbsp;&nbsp; 
+				{block:NoteCount}<a href="{Permalink}#post-notes">{NoteCountWithLabel}</a>{/block:NoteCount}&nbsp;&nbsp;
                 <span style="padding-left:5px" class="right">{LikeButton}</span><span class="right">{ReblogButton}</span>
 			</div>
-		</div>
 	</div>
 	{/block:Answer}
 	
 {/block:Posts}
+
+    {block:PostNotes}
+    <div id="post-notes" class="row panel post-notes">
+			<div class="small-12 columns">
+			    <h3>Notes</h3>
+			    {PostNotes-16}
+			</div>
+	</div>
+	{/block:PostNotes}
 	
+	{block:Pagination}
 	<div class="row">
 		<div class="small-12 columns">
 			<div class="pagination-centered">
 			    <ul class="pagination" role="menubar" aria-label="Pagination">
-					{block:PreviousPage}<li class="arrow" aria-disabled="true"><a href="{PreviousPage}"><span class="fa fa-angle-left"></span></a></li>{/block:PreviousPage}
+					{block:PreviousPage}<li class="arrow"><a href="{PreviousPage}"><span class="fa fa-angle-left"></span></a></li>{/block:PreviousPage}
 					{block:JumpPagination length="5"}
 					{block:CurrentPage}
 					<li class="current"><a href="{URL}">{PageNumber}</a></li>
@@ -555,31 +585,53 @@
 					{/block:JumpPage}
 					{/block:JumpPagination}
 					{block:NextPage}<li class="arrow"><a href="{NextPage}"><span class="fa fa-angle-right"></span></a></li>{/block:NextPage}
+					
 				</ul>
 			</div>
 		</div>
 	</div>
+	{/block:Pagination}
+	
+	{block:DayPagination}
+	<div class="row">
+		<div class="small-12 columns">
+			<div class="pagination-centered">
+			    <ul class="pagination" role="menubar" aria-label="Pagination">
+					{block:PreviousDayPage}<li class="arrow"><a href="{PreviousDayPage}"><span class="fa fa-angle-left"></span> Prev</a></li>{/block:PreviousDayPage}
+					{block:NextDayPage}<li class="arrow"><a href="{NextDayPage}">Next <span class="fa fa-angle-right"></span></a></li>{/block:NextDayPage}
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	{/block:DayPagination}
+
 	<div class="row"
 		<div class="small-12 columns">
 			<h6 class="subheader small-text-center medium-text-right">Theme created by Eelviny - {CopyrightYears}</h6>
 		</div>
 	</div>
 	
-<a href="#" class="scrollToTop fa fa-chevron-up fa-2x show-for-large-up"></a>
+    <a href="#" class="totop fa fa-arrow-circle-o-up fa-2x show-for-large-up"></a>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/vendor/jquery.js"></script> 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js"></script>
 	<script>$(document).foundation();</script>
 	<script>
 	    $(document).ready(function(){
-	
-	    //Click event to scroll to top
-	    $('.scrollToTop').click(function(){
-		    $('html, body').animate({scrollTop : 0},800);
-		    return false;
-	    });
-	
-    });
+	        //Click event to scroll to top
+	        $('.totop').click(function(){
+		       $('html, body').animate({scrollTop : 0},800);
+		        return false;
+	        });
+        });
+	</script>
+	<script>
+	   $('.headerimage').mousemove(function(e){
+            var amountMovedX = (e.pageX * -0.05);
+            var amountMovedY = (e.pageY * -0.05);
+            $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
+        });
 	</script>
 	
 </body>
